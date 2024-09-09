@@ -8,14 +8,14 @@ class Agent:
         self.radius = random(8, 16)
         self.diam = 2 * self.radius
     
-    def update(): 
+    def update(self): 
         self.update_by_velocity()
         self.bounce_boundary()
     
     def bounce_boundary(self): 
-        if (self.x + self.radius >= width) or (self.x - self-radius <= 0):
+        if (self.x + self.radius >= width) or (self.x - self.radius <= 0):
             self.vx *= -1
-        if (self.y + self.radius >= height) or (self.y - self-radius <= 0):
+        if (self.y + self.radius >= height) or (self.y - self.radius <= 0):
             self.vy *= -1
     
     def wrap_boundary(self): 
@@ -38,14 +38,14 @@ class Agent:
             self.diam = 2 * self.radius
         
     def update_by_velocity(self):
-        self.x += self.vx;
-        self.y += self.vy;
+        self.x += self.vx
+        self.y += self.vy
         
     def update_random(self): 
-        self.vx = random(-3, 3);
-        self.vy = random(-3, 3);
-        self.x += self.vx;
-        self.y += self.vy;
+        self.vx = random(-3, 3)
+        self.vy = random(-3, 3)
+        self.x += self.vx
+        self.y += self.vy
     
     def dist_comp(self, agentA, agentB):
         distA = dist(self.x, self.y, agentA.x, agentA.y)
@@ -54,13 +54,13 @@ class Agent:
 
     def update_nearest(self):
     # line 84-92 https://editor.p5js.org/thiagohersan/sketches/p6h71pXE7
-        self.vx = map(10 - self.x, -width, width, 4, -4);
-        self.vy = map(10 - self.y, -height, height, 4, -4);
-        self.x += self.vx;
-        self.y += self.vy;
+        self.vx = map(10 - self.x, -width, width, 4, -4)
+        self.vy = map(10 - self.y, -height, height, 4, -4)
+        self.x += self.vx
+        self.y += self.vy
     
     def draw_agent(self): 
-        ellipse(self.x, self.y, self.diam)
+        ellipse(self.x, self.y, self.diam, self.diam)
         
     def draw(self): 
         if currentMode == POINT_MODE:
@@ -114,7 +114,7 @@ currentMode = 0
 def setup():
     size(800, 600)
     
-    for i in range(max_agents):
+    for i in range(maxAgents):
         agents.append(Agent())
         
 def draw():
